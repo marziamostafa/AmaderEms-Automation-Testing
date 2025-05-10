@@ -3,9 +3,9 @@ import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
-dummy_student = {
-    "full_en": "Sumaiya Chowdhury",
-    "full_bn": "Sumaiya Chowdhury",
+dummy_student_marzia = {
+    "full_en": "Marzia Mostafa",
+    "full_bn": "Marzia Mostafa",
     "dob": "2009-01-09",
     "pin_number": "567202762",
     "birth_reg_no": "6747818141437",
@@ -21,18 +21,18 @@ def test_add_student(driver,run):  # <-- use fixture from conftest.py
     driver.get("https://ems-test.amaderit.net/administer/Students/add")
     time.sleep(1)
 
-    driver.find_element(By.ID, "pin_number").send_keys(dummy_student["pin_number"])
-    driver.find_element(By.ID, "full_name_en").send_keys(dummy_student["full_en"])
-    driver.find_element(By.ID, "full_name_bn").send_keys(dummy_student["full_bn"])
-    driver.find_element(By.ID, "birth_registration_no").send_keys(dummy_student["birth_reg_no"])
-    driver.find_element(By.ID, "dob").send_keys(dummy_student["dob"])
+    driver.find_element(By.ID, "pin_number").send_keys(dummy_student_marzia["pin_number"])
+    driver.find_element(By.ID, "full_name_en").send_keys(dummy_student_marzia["full_en"])
+    driver.find_element(By.ID, "full_name_bn").send_keys(dummy_student_marzia["full_bn"])
+    driver.find_element(By.ID, "birth_registration_no").send_keys(dummy_student_marzia["birth_reg_no"])
+    driver.find_element(By.ID, "dob").send_keys(dummy_student_marzia["dob"])
     driver.find_element(By.ID, "nationality").send_keys("Bangladeshi")
     Select(driver.find_element(By.ID, "country")).select_by_visible_text("BANGLADESH")
     Select(driver.find_element(By.ID, "religion")).select_by_visible_text("Islam")
     Select(driver.find_element(By.ID, "blood_group")).select_by_visible_text("A+")
     Select(driver.find_element(By.ID, "gender")).select_by_visible_text("Female")
     Select(driver.find_element(By.ID, "maritual_status")).select_by_visible_text("Unmarried")
-    driver.find_element(By.ID, "student_email").send_keys(dummy_student["email"])
+    driver.find_element(By.ID, "student_email").send_keys(dummy_student_marzia["email"])
 
     # driver.find_element(By.ID, "profile_picture").send_keys(
     #     r"C:\Users\tonmo\Downloads\b2b76ce53754fbb3442f994450240d5d.jpg"
@@ -41,19 +41,19 @@ def test_add_student(driver,run):  # <-- use fixture from conftest.py
     driver.find_element(By.ID, "study_break_remarks").send_keys("No break taken.")
 
     # Family Info
-    driver.find_element(By.ID, "father_name_en").send_keys(dummy_student["father"])
+    driver.find_element(By.ID, "father_name_en").send_keys(dummy_student_marzia["father"])
     driver.find_element(By.ID, "father_contact_no").send_keys("01712345678")
     driver.find_element(By.ID, "father_also_guardian").click()
     driver.find_element(By.ID, "father_nid").send_keys("1234567890")
-    driver.find_element(By.ID, "mother_name_en").send_keys(dummy_student["mother"])
+    driver.find_element(By.ID, "mother_name_en").send_keys(dummy_student_marzia["mother"])
     driver.find_element(By.ID, "mother_contact_no").send_keys("01812345678")
     driver.find_element(By.ID, "mother_is_guardian").click()
     driver.find_element(By.ID, "mother_nid").send_keys("9876543210")
     Select(driver.find_element(By.ID, "guardian_type")).select_by_visible_text("Father")
-    driver.find_element(By.ID, "local_guardian_name_en").send_keys(dummy_student["guardian"])
+    driver.find_element(By.ID, "local_guardian_name_en").send_keys(dummy_student_marzia["guardian"])
     driver.find_element(By.ID, "local_guardian_contact_no").send_keys("01987654321")
     driver.find_element(By.ID, "local_guardian_relation").send_keys("Uncle")
-    driver.find_element(By.ID, "student_contact").send_keys(dummy_student["phone"])
+    driver.find_element(By.ID, "student_contact").send_keys(dummy_student_marzia["phone"])
     driver.find_element(By.ID, "father_occupation").send_keys("Businessman")
     Select(driver.find_element(By.ID, "quota")).select_by_visible_text("মুক্তিযোদ্ধা সন্তান")
     driver.find_element(By.ID, "father_yearly_income").send_keys("500000")
